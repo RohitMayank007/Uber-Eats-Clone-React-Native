@@ -5,7 +5,7 @@ const ListItem = ({dish}) => {
   return (
     <ScrollView>
     <View style={styles.container}>
-<View style={{flexDirection:'row'}}>
+<View >
       <Text style={styles.name}>{dish.name}</Text>
       <Text style={styles.description} numberOfLines={2} >{dish.description} </Text>
       <Text style={styles.price}>${dish.price}</Text>
