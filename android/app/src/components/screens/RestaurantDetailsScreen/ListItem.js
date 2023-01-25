@@ -3,17 +3,18 @@ import React from 'react'
 
 const ListItem = ({dish}) => {
   return (
-    <ScrollView>
+    // <ScrollView>
     <View style={styles.container}>
-<View >
+      
+<View style={{flex:1}} >
       <Text style={styles.name}>{dish.name}</Text>
       <Text style={styles.description} numberOfLines={2} >{dish.description} </Text>
       <Text style={styles.price}>${dish.price}</Text>
       </View>
-   <Image source={{uri:dish.image}} style={styles.image}/>
+   {dish.image && (<Image source={{uri:dish.image}} style={styles.image}/>)}
    
     </View>
-    </ScrollView>
+    // </ScrollView>
   )
 }
 const styles=StyleSheet.create({
@@ -23,13 +24,15 @@ marginVertical:10,
 marginHorizontal:20,
 borderBottomWidth:1,
 borderBottomColor:'Lightgrey',
-
+flexDirection:'row'
 
 },
 name:{
-    fontWeight:'600',
+    fontWeight:'900',
     fontSize:16,
-    letterSpacing:0.5
+    letterSpacing:0.5,
+    color:'black'
+    
 
 },
 description:{
@@ -37,7 +40,8 @@ color:'gray',
 marginVertical:5
 },
 price:{
-    fontSize:16
+    fontSize:16,
+    fontWeight:'800'
 
 },
 image:{

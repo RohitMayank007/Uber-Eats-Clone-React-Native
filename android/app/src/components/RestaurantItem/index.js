@@ -1,12 +1,18 @@
-import { View, Text, Image, StyleSheet, StatusBar } from 'react-native'
+import { View, Text, Image, StyleSheet,SafeAreaView,Pressable } from 'react-native'
 import React from 'react'
+import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons'
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 const RestaurantItem = ({ restaurant }) => {
+
+    const navigation= useNavigation();
+const onPress = () => {
+    navigation.navigate("Restaurant",{id:restaurant.id})
+}
+
     return (
-<SafeAreaView >
-        <View style={styles.restaurantContainer}>
+
+        <Pressable onPress={onPress} style={styles.restaurantContainer}>
             <Image source={{ uri: restaurant.image }}
                 style={styles.image} />
 
@@ -29,8 +35,8 @@ const RestaurantItem = ({ restaurant }) => {
                 </Text>
                 </View>
             </View>
-        </View>
-        </SafeAreaView>
+        
+</Pressable>
     )
 
 };
